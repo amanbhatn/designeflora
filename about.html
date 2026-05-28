@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us — DesigneFlora</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .about-hero {
+      position: relative;
+      height: 50vh;
+      min-height: 400px;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 80px 60px;
+      overflow: hidden;
+      margin-top: 70px;
+    }
+    .about-hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+    }
+    .about-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,15,13,1) 0%, rgba(10,15,13,0.3) 100%);
+    }
+    .about-hero-text {
+      position: relative;
+      z-index: 2;
+    }
+    .about-hero-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--cream);
+    }
+    .about-hero-text h1 em { color: var(--aqua); font-style: italic; }
+    
+    .about-full {
+      padding: 100px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-full-video {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+    .about-full-video video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .about-full-video::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,15,13,0.5) 0%, transparent 50%);
+    }
+    .about-content p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: rgba(245,240,232,0.75);
+      margin-bottom: 24px;
+    }
+    .about-values {
+      margin-top: 50px;
+    }
+    .value-item {
+      display: flex;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .value-item:first-child { border-top: 1px solid var(--glass-border); }
+    .value-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--aqua);
+      letter-spacing: 0.1em;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .value-item h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+    .value-item p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(245,240,232,0.55);
+      margin: 0;
+    }
+
+    .team-section {
+      padding: 100px 80px;
+      background: #0d1410;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 60px;
+    }
+    .team-card {
+      padding: 40px 30px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--glass-border);
+      border-radius: 4px;
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+    .team-card:hover {
+      border-color: rgba(0,195,180,0.4);
+      transform: translateY(-6px);
+    }
+    .team-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sage), var(--aqua));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--ink);
+      margin: 0 auto 20px;
+      font-weight: 600;
+    }
+    .team-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+    .team-card .role {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--aqua);
+      margin-bottom: 16px;
+    }
+    .team-card p {
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: rgba(245,240,232,0.5);
+    }
+
+    @media (max-width: 768px) {
+      .about-hero { padding: 0 24px 40px; }
+      .about-full { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+      .team-section { padding: 60px 24px; }
+      .team-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav id="nav">
+    <a href="index.html" id="logo">
+      <img src="image/b.png" alt="DesigneFlora">
+      <span class="logo-name">DesigneFlora</span>
+    </a>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    <div id="nav1">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ABOUT HERO -->
+  <div class="about-hero">
+    <video autoplay muted loop playsinline>
+      <source src="video/about.mp4" type="video/mp4">
+    </video>
+    <div class="about-hero-text">
+      <p class="section-label" style="margin-bottom:12px;">Our Story</p>
+      <h1>We design with<br><em>purpose & soul</em></h1>
+    </div>
+  </div>
+
+  <!-- ABOUT CONTENT -->
+  <section class="about-full">
+    <div class="about-full-video reveal">
+      <video autoplay muted loop playsinline>
+        <source src="video/about.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="about-content">
+      <p class="section-label reveal">About DesigneFlora</p>
+      <h2 class="section-title reveal reveal-delay-1">More than design —<br>it's an <em>experience</em></h2>
+      <p class="reveal reveal-delay-2">At DesigneFlora, we believe that design is more than just visuals — it's an experience inspired by the elegance of nature. Our mission is to craft stunning, user-friendly digital experiences that blend creativity with the beauty of organic forms.</p>
+      <p class="reveal reveal-delay-2">Whether you're a brand, artist, or innovator, DesigneFlora is your digital garden — where imagination blooms and every element tells a story. With a focus on natural aesthetics, modern UI/UX principles, and artistic flair, we bring your ideas to life in the most captivating way.</p>
+      <p class="reveal reveal-delay-3">From bespoke websites to brand identities, our creations breathe freshness, clarity, and purpose into your digital presence.</p>
+      
+      <div class="about-values reveal">
+        <div class="value-item">
+          <span class="value-num">—01</span>
+          <div>
+            <h4>Creativity Without Limits</h4>
+            <p>We push boundaries and challenge conventions to create truly memorable digital experiences.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <span class="value-num">—02</span>
+          <div>
+            <h4>Nature as Inspiration</h4>
+            <p>Organic patterns, fluid motion, and natural color palettes guide every design decision we make.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <span class="value-num">—03</span>
+          <div>
+            <h4>Client Partnership</h4>
+            <p>We work closely with every client, treating their vision as our own creative challenge to solve.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-section">
+    <p class="section-label reveal">The Team</p>
+    <h2 class="section-title reveal reveal-delay-1">Creative <em>minds</em> behind the magic</h2>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar">A</div>
+        <h4>Aman Bhatnagar</h4>
+        <div class="role">Founder & Lead Designer</div>
+        <p>Passionate about blending natural aesthetics with modern digital craft. The creative visionary behind DesigneFlora's unique identity.</p>
+      </div>
+      <div class="team-card reveal reveal-delay-1">
+        <div class="team-avatar">S</div>
+        <h4>Sneha Sharma</h4>
+        <div class="role">UI/UX Specialist</div>
+        <p>Expert in user research and creating interfaces that feel intuitive and beautiful at the same time.</p>
+      </div>
+      <div class="team-card reveal reveal-delay-2">
+        <div class="team-avatar">V</div>
+        <h4>Vikas Rathore</h4>
+        <div class="role">Frontend Developer</div>
+        <p>Turns design mockups into pixel-perfect, performant, and accessible web experiences.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>DesigneFlora</h3>
+        <p>A creative digital studio where imagination blooms.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+918118834854">+91 8118834854</a></li>
+          <li><a href="mailto:amanbhatnagar222003@gmail.com">Email Us</a></li>
+          <li><a href="#">Ajmer, Rajasthan</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="designvideo.html">Watch Reel</a></li>
+          <li><a href="contact.html">Start a Project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 – 2040 DesigneFlora. All rights reserved.</p>
+      <p>Designed with ♥ in Ajmer, India</p>
+    </div>
+  </footer>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX - 5 + 'px'; cursor.style.top = e.clientY - 5 + 'px';
+      ring.style.left = e.clientX - 18 + 'px'; ring.style.top = e.clientY - 18 + 'px';
+    });
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80);
+    });
+    function toggleMenu() { document.getElementById('nav1').classList.toggle('open'); }
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.12 });
+    reveals.forEach(r => obs.observe(r));
+  </script>
+</body>
+</html>

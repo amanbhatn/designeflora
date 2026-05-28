@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services & Vision — DesigneFlora</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .service-hero {
+      position: relative;
+      height: 55vh;
+      min-height: 420px;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 80px 60px;
+      overflow: hidden;
+      margin-top: 70px;
+    }
+    .service-hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.45;
+    }
+    .service-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,15,13,1) 0%, rgba(10,15,13,0.2) 100%);
+    }
+    .service-hero-text { position: relative; z-index: 2; }
+    .service-hero-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.05;
+    }
+    .service-hero-text h1 em { color: var(--aqua); font-style: italic; }
+
+    .services-full {
+      padding: 100px 80px;
+    }
+    .services-list {
+      margin-top: 60px;
+    }
+    .service-row {
+      display: grid;
+      grid-template-columns: 60px 1fr auto;
+      align-items: center;
+      gap: 40px;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--glass-border);
+      cursor: default;
+      transition: all 0.3s ease;
+    }
+    .service-row:first-child { border-top: 1px solid var(--glass-border); }
+    .service-row:hover { padding-left: 20px; }
+    .service-row:hover .sr-num { color: var(--aqua); }
+    .sr-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: rgba(245,240,232,0.3);
+      letter-spacing: 0.1em;
+      transition: color 0.3s ease;
+    }
+    .sr-content { display: flex; align-items: center; gap: 30px; }
+    .sr-icon {
+      font-size: 1.8rem;
+      width: 50px;
+      flex-shrink: 0;
+    }
+    .sr-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+    .sr-text p {
+      font-size: 0.85rem;
+      color: rgba(245,240,232,0.5);
+      line-height: 1.6;
+      max-width: 480px;
+    }
+    .sr-arrow {
+      width: 44px; height: 44px;
+      border: 1px solid var(--glass-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(245,240,232,0.3);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+    .service-row:hover .sr-arrow {
+      border-color: var(--aqua);
+      color: var(--aqua);
+      transform: rotate(45deg);
+    }
+
+    /* VISION */
+    .vision-section {
+      padding: 100px 80px;
+      background: #0d1410;
+    }
+    .vision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 60px;
+    }
+    .vision-video-wrap {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .vision-video-wrap video {
+      width: 100%; height: auto;
+      display: block;
+      max-height: 75vh;
+      object-fit: cover;
+    }
+    .vision-video-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--glass-border);
+      border-radius: 4px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .vision-points-list { }
+    .vision-item {
+      display: flex;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--glass-border);
+      cursor: default;
+      transition: all 0.3s ease;
+    }
+    .vision-item:first-child { border-top: 1px solid var(--glass-border); }
+    .vision-item:hover { padding-left: 10px; }
+    .vi-num {
+      width: 52px; height: 52px;
+      background: var(--aqua);
+      color: var(--ink);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+    .vision-item:hover .vi-num {
+      background: var(--cream);
+      box-shadow: 0 0 30px var(--shadow-green);
+    }
+    .vi-text h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+    .vi-text p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: rgba(245,240,232,0.55);
+    }
+
+    /* Pricing */
+    .pricing-section {
+      padding: 100px 80px;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+    .pricing-card {
+      padding: 50px 40px;
+      border: 1px solid var(--glass-border);
+      border-radius: 4px;
+      background: rgba(255,255,255,0.02);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+    .pricing-card.featured {
+      background: rgba(0,195,180,0.06);
+      border-color: var(--aqua);
+    }
+    .pricing-card.featured::before {
+      content: 'POPULAR';
+      position: absolute;
+      top: -12px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--aqua);
+      color: var(--ink);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 2px;
+    }
+    .pricing-card:hover { transform: translateY(-6px); }
+    .pricing-plan {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--aqua);
+      margin-bottom: 16px;
+    }
+    .pricing-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .pricing-price sup {
+      font-size: 1.5rem;
+      vertical-align: top;
+      margin-top: 8px;
+    }
+    .pricing-note {
+      font-size: 0.75rem;
+      color: rgba(245,240,232,0.4);
+      margin-bottom: 30px;
+      font-family: 'Space Mono', monospace;
+    }
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 36px;
+    }
+    .pricing-features li {
+      font-size: 0.88rem;
+      color: rgba(245,240,232,0.65);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .pricing-features li::before {
+      content: '✓';
+      color: var(--aqua);
+      font-weight: 700;
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 1024px) {
+      .vision-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .service-row { grid-template-columns: 40px 1fr; }
+      .sr-arrow { display: none; }
+    }
+    @media (max-width: 768px) {
+      .service-hero { padding: 0 24px 40px; }
+      .services-full, .vision-section, .pricing-section { padding: 60px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav id="nav">
+    <a href="index.html" id="logo">
+      <img src="image/b.png" alt="DesigneFlora">
+      <span class="logo-name">DesigneFlora</span>
+    </a>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    <div id="nav1">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="service.html" class="active">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="service-hero">
+    <video autoplay muted loop playsinline>
+      <source src="video/wave.mp4" type="video/mp4">
+    </video>
+    <div class="service-hero-text">
+      <p class="section-label" style="margin-bottom:12px;">What We Offer</p>
+      <h1>Services built for<br>a <em>digital world</em></h1>
+    </div>
+  </div>
+
+  <!-- SERVICES LIST -->
+  <section class="services-full">
+    <p class="section-label reveal">Our Services</p>
+    <h2 class="section-title reveal reveal-delay-1">Crafting digital <em>excellence</em></h2>
+    <div class="services-list">
+      <div class="service-row reveal">
+        <span class="sr-num">01</span>
+        <div class="sr-content">
+          <span class="sr-icon">🎨</span>
+          <div class="sr-text">
+            <h3>UI / UX Design</h3>
+            <p>Beautiful, research-driven interfaces with seamless user journeys inspired by organic flow and natural patterns.</p>
+          </div>
+        </div>
+        <div class="sr-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="service-row reveal">
+        <span class="sr-num">02</span>
+        <div class="sr-content">
+          <span class="sr-icon">💻</span>
+          <div class="sr-text">
+            <h3>Web Development</h3>
+            <p>Clean, performant, and accessible code — from landing pages to full-stack web applications.</p>
+          </div>
+        </div>
+        <div class="sr-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="service-row reveal">
+        <span class="sr-num">03</span>
+        <div class="sr-content">
+          <span class="sr-icon">🌱</span>
+          <div class="sr-text">
+            <h3>Brand Identity</h3>
+            <p>Logos, color systems, typography, and brand guidelines rooted in nature's timeless visual language.</p>
+          </div>
+        </div>
+        <div class="sr-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="service-row reveal">
+        <span class="sr-num">04</span>
+        <div class="sr-content">
+          <span class="sr-icon">📱</span>
+          <div class="sr-text">
+            <h3>Responsive & Mobile Design</h3>
+            <p>Pixel-perfect layouts that delight on every device, from mobile screens to ultra-wide monitors.</p>
+          </div>
+        </div>
+        <div class="sr-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="service-row reveal">
+        <span class="sr-num">05</span>
+        <div class="sr-content">
+          <span class="sr-icon">🎬</span>
+          <div class="sr-text">
+            <h3>Motion & Animation</h3>
+            <p>Purposeful motion design that breathes life into interfaces through cinematic transitions and interactions.</p>
+          </div>
+        </div>
+        <div class="sr-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="service-row reveal">
+        <span class="sr-num">06</span>
+        <div class="sr-content">
+          <span class="sr-icon">🤖</span>
+          <div class="sr-text">
+            <h3>AI-Powered Plant Design</h3>
+            <p>Intelligent greenery recommendations and care guidance tailored to your space, lifestyle, and aesthetic.</p>
+          </div>
+        </div>
+        <div class="sr-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION -->
+  <section class="vision-section">
+    <p class="section-label reveal">Our Vision</p>
+    <h2 class="section-title reveal reveal-delay-1">Where we're <em>growing</em> toward</h2>
+    <div class="vision-grid">
+      <div class="vision-video-wrap reveal">
+        <video autoplay muted loop playsinline>
+          <source src="video/wave.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="vision-points-list">
+        <div class="vision-item reveal">
+          <div class="vi-num">01</div>
+          <div class="vi-text">
+            <h4>Inspire Eco-Friendly Living</h4>
+            <p>Promote indoor and outdoor greenery through creative plant designs that make sustainability beautiful.</p>
+          </div>
+        </div>
+        <div class="vision-item reveal reveal-delay-1">
+          <div class="vi-num">02</div>
+          <div class="vi-text">
+            <h4>Seamless Plant Platform</h4>
+            <p>A unified experience where users discover, buy, and track their plants' lifecycle with intelligent care guidance.</p>
+          </div>
+        </div>
+        <div class="vision-item reveal reveal-delay-2">
+          <div class="vi-num">03</div>
+          <div class="vi-text">
+            <h4>AI-Tailored Greenery</h4>
+            <p>Empower every home and workspace with aesthetic, low-maintenance greenery recommendations powered by AI.</p>
+          </div>
+        </div>
+        <div class="vision-item reveal reveal-delay-3">
+          <div class="vi-num">04</div>
+          <div class="vi-text">
+            <h4>Plant-Lover Community</h4>
+            <p>A vibrant community sharing design tips, care routines, and nature-inspired creative ideas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section">
+    <p class="section-label reveal">Pricing</p>
+    <h2 class="section-title reveal reveal-delay-1">Simple, transparent <em>pricing</em></h2>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-plan">Seed</div>
+        <div class="pricing-price"><sup>₹</sup>9,999</div>
+        <div class="pricing-note">/ project · starting from</div>
+        <ul class="pricing-features">
+          <li>Single-page website</li>
+          <li>Responsive design</li>
+          <li>Basic animations</li>
+          <li>1 revision round</li>
+          <li>7-day delivery</li>
+        </ul>
+        <a href="contact.html" class="btn-secondary" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+      <div class="pricing-card featured reveal reveal-delay-1">
+        <div class="pricing-plan">Bloom</div>
+        <div class="pricing-price"><sup>₹</sup>24,999</div>
+        <div class="pricing-note">/ project · starting from</div>
+        <ul class="pricing-features">
+          <li>Multi-page website</li>
+          <li>UI/UX design system</li>
+          <li>Advanced animations</li>
+          <li>3 revision rounds</li>
+          <li>Brand identity kit</li>
+          <li>14-day delivery</li>
+        </ul>
+        <a href="contact.html" class="btn-primary" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+      <div class="pricing-card reveal reveal-delay-2">
+        <div class="pricing-plan">Forest</div>
+        <div class="pricing-price"><sup>₹</sup>49,999</div>
+        <div class="pricing-note">/ project · starting from</div>
+        <ul class="pricing-features">
+          <li>Full web application</li>
+          <li>Custom design system</li>
+          <li>Motion & interaction design</li>
+          <li>Unlimited revisions</li>
+          <li>Full brand identity</li>
+          <li>30-day delivery</li>
+        </ul>
+        <a href="contact.html" class="btn-secondary" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>DesigneFlora</h3>
+        <p>A creative digital studio where imagination blooms.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+918118834854">+91 8118834854</a></li>
+          <li><a href="mailto:amanbhatnagar222003@gmail.com">Email Us</a></li>
+          <li><a href="#">Ajmer, Rajasthan 305001</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">UI / UX Design</a></li>
+          <li><a href="#">Web Development</a></li>
+          <li><a href="#">Brand Identity</a></li>
+          <li><a href="#">Motion Design</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 – 2040 DesigneFlora. All rights reserved.</p>
+      <p>Designed with ♥ in Ajmer, India</p>
+    </div>
+  </footer>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX - 5 + 'px'; cursor.style.top = e.clientY - 5 + 'px';
+      ring.style.left = e.clientX - 18 + 'px'; ring.style.top = e.clientY - 18 + 'px';
+    });
+    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80));
+    function toggleMenu() { document.getElementById('nav1').classList.toggle('open'); }
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.12 });
+    reveals.forEach(r => obs.observe(r));
+  </script>
+</body>
+</html>

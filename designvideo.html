@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Reel — DesigneFlora</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .reel-page {
+      min-height: 100vh;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 40px 60px;
+    }
+    .reel-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .reel-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+    .reel-header h1 em { color: var(--aqua); font-style: italic; }
+    .reel-header p {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.4);
+    }
+    .reel-container {
+      position: relative;
+      width: 100%;
+      max-width: 1100px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 60px 120px rgba(0,0,0,0.8);
+      border: 1px solid var(--glass-border);
+    }
+    .reel-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .video-controls {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0);
+      transition: background 0.3s ease;
+      cursor: pointer;
+    }
+    .reel-container:hover .video-controls { background: rgba(0,0,0,0.15); }
+    .play-btn {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: rgba(0,195,180,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--ink);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+    }
+    .reel-container:hover .play-btn { opacity: 1; transform: scale(1); }
+    .play-btn.paused { opacity: 1; transform: scale(1); }
+    
+    .reel-cta {
+      margin-top: 50px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav id="nav">
+    <a href="index.html" id="logo">
+      <img src="image/b.png" alt="DesigneFlora">
+      <span class="logo-name">DesigneFlora</span>
+    </a>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    <div id="nav1">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="reel-page">
+    <div class="reel-header">
+      <p class="section-label" style="justify-content:center; margin-bottom:16px;">Design Reel 2025</p>
+      <h1>Where nature meets<br><em>digital craft</em></h1>
+      <p style="margin-top:16px;">A collection of our finest work</p>
+    </div>
+    <div class="reel-container" id="reelContainer">
+      <video id="reelVideo" loop autoplay muted playsinline controls>
+        <source src="video/Nature-Inspired Digital Design-VEED.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-controls" id="videoControls" onclick="togglePlay()">
+        <div class="play-btn" id="playBtn"><i class="fas fa-play" id="playIcon"></i></div>
+      </div>
+    </div>
+    <div class="reel-cta">
+      <a href="contact.html" class="btn-primary">Start a Project <i class="fas fa-arrow-right"></i></a>
+      <a href="service.html" class="btn-secondary">View Services</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-bottom" style="margin:0; padding: 30px 80px;">
+      <p>© 2025 – 2040 DesigneFlora. All rights reserved.</p>
+      <p>Designed with ♥ in Ajmer, India</p>
+    </div>
+  </footer>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX - 5 + 'px'; cursor.style.top = e.clientY - 5 + 'px';
+      ring.style.left = e.clientX - 18 + 'px'; ring.style.top = e.clientY - 18 + 'px';
+    });
+    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80));
+    function toggleMenu() { document.getElementById('nav1').classList.toggle('open'); }
+
+    const video = document.getElementById('reelVideo');
+    const playBtn = document.getElementById('playBtn');
+    const playIcon = document.getElementById('playIcon');
+    function togglePlay() {
+      if (video.paused) {
+        video.play();
+        playBtn.classList.remove('paused');
+        playIcon.className = 'fas fa-pause';
+      } else {
+        video.pause();
+        playBtn.classList.add('paused');
+        playIcon.className = 'fas fa-play';
+      }
+    }
+  </script>
+</body>
+</html>

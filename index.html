@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DesigneFlora — Where Imagination Blooms</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div style="text-align:center">
+      <div class="loader-text">
+        <span style="animation-delay:0s">D</span><span style="animation-delay:0.05s">e</span><span style="animation-delay:0.1s">s</span><span style="animation-delay:0.15s">i</span><span style="animation-delay:0.2s">g</span><span style="animation-delay:0.25s">n</span><span style="animation-delay:0.3s">e</span><span style="animation-delay:0.35s">F</span><span style="animation-delay:0.4s">l</span><span style="animation-delay:0.45s">o</span><span style="animation-delay:0.5s">r</span><span style="animation-delay:0.55s">a</span>
+      </div>
+      <div class="loader-line" style="margin: 16px auto 0;"></div>
+    </div>
+  </div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" id="logo">
+      <img src="image/b.png" alt="DesigneFlora Logo">
+      <span class="logo-name">DesigneFlora</span>
+    </a>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <div id="nav1">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <video class="hero-bg-video" autoplay muted loop playsinline>
+      <source src="video/lotus.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tag">Creative Digital Studio — Est. 2025</p>
+      <h1>Design that <em>blooms</em> from nature's canvas</h1>
+      <p>At DesigneFlora, we craft stunning digital experiences inspired by the elegance of organic forms. Where imagination grows and every pixel tells a story.</p>
+      <div class="hero-cta">
+        <a href="about.html" class="btn-primary">Explore Our Work <i class="fas fa-arrow-right"></i></a>
+        <a href="designvideo.html" class="btn-secondary"><i class="fas fa-play"></i> Watch Reel</a>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Scroll to explore</span>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Projects Done</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">30+</div>
+        <div class="stat-label">Happy Clients</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">3+</div>
+        <div class="stat-label">Years of Craft</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-inner">
+      <span>Web Design</span><span>UI / UX</span><span>Brand Identity</span><span>Motion Design</span><span>Digital Strategy</span><span>Creative Direction</span><span>Nature-Inspired</span><span>Web Design</span><span>UI / UX</span><span>Brand Identity</span><span>Motion Design</span><span>Digital Strategy</span><span>Creative Direction</span><span>Nature-Inspired</span>
+    </div>
+  </div>
+
+  <!-- ABOUT SNIPPET -->
+  <section id="about">
+    <div class="about-visual reveal">
+      <div class="about-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="video/about.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="about-badge">
+        <div class="about-badge-inner">
+          <div class="badge-year">25</div>
+          <div class="badge-text">Est.</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-text-content">
+      <p class="section-label reveal">About Us</p>
+      <h2 class="section-title reveal reveal-delay-1">Where <em>nature</em> meets digital craft</h2>
+      <p class="reveal reveal-delay-2">At DesigneFlora, we believe that design is more than just visuals — it's an experience inspired by the elegance of nature. Our mission is to craft stunning, user-friendly digital experiences that blend creativity with the beauty of organic forms.</p>
+      <p class="reveal reveal-delay-2">Whether you're a brand, artist, or innovator, DesigneFlora is your digital garden — where imagination blooms and every element tells a story.</p>
+      <div class="about-features">
+        <div class="about-feature reveal reveal-delay-1">
+          <div class="about-feature-icon">🌿</div>
+          <h4>Nature-Inspired</h4>
+          <p>Organic aesthetics rooted in natural beauty and flow.</p>
+        </div>
+        <div class="about-feature reveal reveal-delay-2">
+          <div class="about-feature-icon">⚡</div>
+          <h4>Fast & Modern</h4>
+          <p>Performant, clean code built for today's web.</p>
+        </div>
+        <div class="about-feature reveal reveal-delay-3">
+          <div class="about-feature-icon">🎯</div>
+          <h4>Purpose-Driven</h4>
+          <p>Every design decision has intentional meaning.</p>
+        </div>
+        <div class="about-feature reveal reveal-delay-4">
+          <div class="about-feature-icon">✨</div>
+          <h4>Pixel-Perfect</h4>
+          <p>Meticulous attention to every detail and interaction.</p>
+        </div>
+      </div>
+      <div style="margin-top: 40px;" class="reveal reveal-delay-3">
+        <a href="about.html" class="btn-primary">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section id="services">
+    <div class="services-header">
+      <div>
+        <p class="section-label reveal">What We Do</p>
+        <h2 class="section-title reveal reveal-delay-1">Crafting <em>experiences</em><br>that matter</h2>
+      </div>
+      <a href="service.html" class="btn-secondary reveal">All Services <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-number">01</div>
+        <span class="service-icon">🎨</span>
+        <h3>UI / UX Design</h3>
+        <p>Beautifully crafted interfaces with seamless user journeys rooted in empathy and nature-inspired aesthetics.</p>
+        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-number">02</div>
+        <span class="service-icon">💻</span>
+        <h3>Web Development</h3>
+        <p>Clean, performant code that brings your vision to life. From landing pages to full web applications.</p>
+        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-number">03</div>
+        <span class="service-icon">🌱</span>
+        <h3>Brand Identity</h3>
+        <p>Grow your brand with logos, palettes, and systems inspired by nature's timeless visual language.</p>
+        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-number">04</div>
+        <span class="service-icon">📱</span>
+        <h3>Responsive Design</h3>
+        <p>Flawless experiences across every screen size, from mobile to widescreen displays.</p>
+        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-number">05</div>
+        <span class="service-icon">🎬</span>
+        <h3>Motion & Animation</h3>
+        <p>Breathing life into static interfaces through purposeful motion and cinematic transitions.</p>
+        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-number">06</div>
+        <span class="service-icon">🤖</span>
+        <h3>AI-Powered Greenery</h3>
+        <p>Tailored plant recommendations and design guidance powered by intelligent algorithms.</p>
+        <div class="service-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK / PORTFOLIO -->
+  <section id="work">
+    <div class="work-header">
+      <p class="section-label reveal">Portfolio</p>
+      <h2 class="section-title reveal reveal-delay-1">Selected <em>works</em></h2>
+    </div>
+    <div class="work-grid">
+      <div class="work-item reveal">
+        <img src="image/pexels-jmark-250591.jpg" alt="Project 1" onerror="this.style.background='linear-gradient(135deg,#2d5016,#4a7c59)';this.removeAttribute('src')">
+        <div class="work-overlay">
+          <div class="work-info">
+            <h4>Flora Brand Identity</h4>
+            <span>Branding · 2025</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-item reveal reveal-delay-1">
+        <img src="image/pexels-jessbaileydesign-1172849.jpg" alt="Project 2" onerror="this.style.background='linear-gradient(135deg,#00c3b4,#2d5016)';this.removeAttribute('src')">
+        <div class="work-overlay">
+          <div class="work-info">
+            <h4>Bloom UI Kit</h4>
+            <span>UI Design · 2025</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-item reveal reveal-delay-2">
+        <img src="image/pexels-minan1398-1353938.jpg" alt="Project 3" onerror="this.style.background='linear-gradient(135deg,#4a7c59,#c9a84c)';this.removeAttribute('src')">
+        <div class="work-overlay">
+          <div class="work-info">
+            <h4>Garden App</h4>
+            <span>Web App · 2025</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-item reveal reveal-delay-1">
+        <img src="image/pexels-lizromo24-1999579.jpg" alt="Project 4" onerror="this.style.background='linear-gradient(135deg,#0d1410,#4a7c59)';this.removeAttribute('src')">
+        <div class="work-overlay">
+          <div class="work-info">
+            <h4>Nature Portal</h4>
+            <span>Web Design · 2025</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-item reveal reveal-delay-2">
+        <img src="image/pexels-chevanon-325045.jpg" alt="Project 5" onerror="this.style.background='linear-gradient(135deg,#2d5016,#00c3b4)';this.removeAttribute('src')">
+        <div class="work-overlay">
+          <div class="work-info">
+            <h4>Eco Dashboard</h4>
+            <span>Dashboard · 2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" style="background:#0d1410; padding: 120px 80px;">
+    <p class="section-label reveal">How We Work</p>
+    <h2 class="section-title reveal reveal-delay-1">Our creative <em>process</em></h2>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="process-num">01</div>
+        <h4>Discover</h4>
+        <p>We dive deep into your goals, audience, and brand essence to build a clear creative foundation.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-num">02</div>
+        <h4>Design</h4>
+        <p>Translating insights into stunning visual concepts — wireframes, mood boards, and prototypes.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-num">03</div>
+        <h4>Develop</h4>
+        <p>Bringing designs to life with clean, scalable, and performant code built to last.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-num">04</div>
+        <h4>Deliver</h4>
+        <p>Launching with precision, followed by support, iteration, and continued growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <p class="section-label reveal">Testimonials</p>
+    <h2 class="section-title reveal reveal-delay-1">What clients <em>say</em></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-quote">"</div>
+        <p>DesigneFlora transformed our brand. Their nature-inspired design philosophy gave us an identity that truly stands apart in our industry.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">P</div>
+          <div class="author-info">
+            <strong>Priya Sharma</strong>
+            <span>Founder, GreenLeaf Co.</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-quote">"</div>
+        <p>The website they built for us exceeded every expectation. The attention to detail and the animations make it feel alive and organic.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">R</div>
+          <div class="author-info">
+            <strong>Rahul Mehta</strong>
+            <span>CEO, Botanica Studio</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-quote">"</div>
+        <p>Working with DesigneFlora was a delight. They bring creativity and technical excellence together in a way few studios can match.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">A</div>
+          <div class="author-info">
+            <strong>Anita Verma</strong>
+            <span>Creative Director, Petal Media</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA STRIP -->
+  <div style="background: var(--aqua); padding: 80px; text-align: center;">
+    <p style="font-family:'Space Mono',monospace; font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:rgba(10,15,13,0.6); margin-bottom:16px;">Ready to grow?</p>
+    <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3.5rem); font-weight:300; color:var(--ink); margin-bottom:32px;">Let's build something <em style="font-style:italic;">extraordinary</em></h2>
+    <a href="contact.html" class="btn-primary" style="background:var(--ink); color:var(--cream);">Start a Project <i class="fas fa-arrow-right"></i></a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>DesigneFlora</h3>
+        <p>A creative digital studio where imagination blooms and every element tells a story inspired by nature.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">UI / UX Design</a></li>
+          <li><a href="#">Web Development</a></li>
+          <li><a href="#">Brand Identity</a></li>
+          <li><a href="#">Motion Design</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+918118834854">+91 8118834854</a></li>
+          <li><a href="mailto:amanbhatnagar222003@gmail.com">amanbhatnagar222003@gmail.com</a></li>
+          <li><a href="#">Ajmer, Rajasthan 305001</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 – 2040 DesigneFlora. All rights reserved.</p>
+      <p>Designed with ♥ in Ajmer, India</p>
+    </div>
+  </footer>
+
+  <!-- SUCCESS TOAST -->
+  <div class="success-toast" id="toast">✓ Message sent successfully!</div>
+
+  <script>
+    // Loader
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loader').classList.add('hidden');
+      }, 1800);
+    });
+
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX - 5 + 'px';
+      cursor.style.top = e.clientY - 5 + 'px';
+      ring.style.left = e.clientX - 18 + 'px';
+      ring.style.top = e.clientY - 18 + 'px';
+    });
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => { ring.style.transform = 'scale(1.6)'; cursor.style.transform = 'scale(0.5)'; });
+      el.addEventListener('mouseleave', () => { ring.style.transform = 'scale(1)'; cursor.style.transform = 'scale(1)'; });
+    });
+
+    // Nav scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80);
+    });
+
+    // Hamburger
+    function toggleMenu() {
+      document.getElementById('nav1').classList.toggle('open');
+    }
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.15 });
+    reveals.forEach(r => observer.observe(r));
+
+    // URL success param
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('success') === '1') {
+      const t = document.getElementById('toast');
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 4000);
+    }
+  </script>
+</body>
+</html>
